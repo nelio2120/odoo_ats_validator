@@ -1,11 +1,21 @@
-# ATS Validator for Odoo 18
+# ATS Validator for Odoo
 
+[![Odoo 18.0](https://img.shields.io/badge/Odoo-18.0-875A7B)](https://www.odoo.com)
 [![Odoo 19.0](https://img.shields.io/badge/Odoo-19.0-875A7B)](https://www.odoo.com)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0.html)
 
-Módulo genérico para Odoo 18 que valida el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador. Sube un XML, lo envía a un microservicio validador y muestra los resultados — errores XSD, errores de reglas de negocio, advertencias y el **talón resumen HTML** — directamente en la interfaz de Odoo.
+Módulo genérico para Odoo que valida el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador. Sube un XML, lo envía a un microservicio validador y muestra los resultados — errores XSD, errores de reglas de negocio, advertencias y el **talón resumen HTML** — directamente en la interfaz de Odoo.
 
 > **Este módulo es un cliente genérico.** No genera el XML del ATS. Lo hace el módulo de localización ecuatoriana instalado en tu instancia. Este módulo toma ese XML, lo envía al validador externo y presenta el resultado.
+
+---
+
+## Versiones disponibles
+
+| Rama | Versión Odoo | Estado |
+|------|-------------|--------|
+| [`18.0`](https://github.com/nelio2120/odoo_ats_validator/tree/18.0) | 18.0 | Estable |
+| [`19.0`](https://github.com/nelio2120/odoo_ats_validator/tree/19.0) | 19.0 | Estable |
 
 ---
 
@@ -28,7 +38,7 @@ Módulo genérico para Odoo 18 que valida el **Anexo Transaccional Simplificado 
 
 | Componente | Versión |
 |------------|---------|
-| Odoo | 19.0 |
+| Odoo | 18.0 o 19.0 |
 | Python | 3.10+ |
 | Módulos Odoo | `account`, `mail` |
 
@@ -64,10 +74,14 @@ Started AtsValidatorApplication in X seconds
 
 ### Instalación manual
 
-1. Descarga o clona este repositorio:
+1. Clona la rama correspondiente a tu versión de Odoo:
 
    ```bash
-   git clone https://github.com/nelio2120/odoo_ats_validator.git
+   # Para Odoo 18.0
+   git clone -b 18.0 https://github.com/nelio2120/odoo_ats_validator.git
+
+   # Para Odoo 19.0
+   git clone -b 19.0 https://github.com/nelio2120/odoo_ats_validator.git
    ```
 
 2. Copia la carpeta `ats_validator` dentro de tu directorio de addons:

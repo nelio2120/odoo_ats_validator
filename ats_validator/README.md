@@ -1,8 +1,17 @@
-# ATS Validator — Módulo Odoo 18
+# ATS Validator — Módulo Odoo 19.0
 
-Módulo genérico para Odoo 18 que permite validar el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador enviando un XML a un servicio REST externo y mostrando los resultados directamente en la interfaz de Odoo.
+Módulo genérico para Odoo 19.0 que permite validar el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador enviando un XML a un servicio REST externo y mostrando los resultados directamente en la interfaz de Odoo.
 
 > Este módulo es un **cliente genérico**. No genera el XML del ATS — eso lo hace el módulo de localización ecuatoriana instalado en tu instancia. Este módulo toma ese XML, lo envía al validador y presenta el resultado.
+
+---
+
+## Versiones disponibles
+
+| Rama | Versión Odoo |
+|------|-------------|
+| [`18.0`](https://github.com/nelio2120/odoo_ats_validator/tree/18.0) | 18.0 |
+| [`19.0`](https://github.com/nelio2120/odoo_ats_validator/tree/19.0) | 19.0 |
 
 ---
 
@@ -17,7 +26,7 @@ Módulo genérico para Odoo 18 que permite validar el **Anexo Transaccional Simp
 
 ### Servicio ATS Validator
 
-Este módulo requiere el microservicio **[ats-validator](https://github.com/tu-org/ats-validator)** corriendo como backend de validación. Es un JAR de Spring Boot autocontenido que expone la API REST utilizada por este módulo.
+Este módulo requiere el microservicio **[ats-validator](https://github.com/nelio2120/ats-validator)** corriendo como backend de validación. Es un JAR de Spring Boot autocontenido que expone la API REST utilizada por este módulo.
 
 ```bash
 java -jar ats-validator-1.0.0.jar
@@ -28,21 +37,27 @@ java -jar ats-validator-1.0.0.jar
 
 ## Instalación
 
-1. Copia la carpeta `ats_validator` dentro de tu directorio de addons custom.
-2. Actualiza la lista de módulos en Odoo (`Ajustes > Activar modo desarrollador > Actualizar lista de aplicaciones`).
-3. Busca **ATS Validator** e instálalo.
+1. Clona la rama `19.0`:
+
+   ```bash
+   git clone -b 19.0 https://github.com/nelio2120/odoo_ats_validator.git
+   ```
+
+2. Copia la carpeta `ats_validator` dentro de tu directorio de addons custom.
+3. Actualiza la lista de módulos en Odoo (`Ajustes > Activar modo desarrollador > Actualizar lista de aplicaciones`).
+4. Busca **ATS Validator** e instálalo.
 
 ---
 
 ## Configuración
 
-Ve a **Contabilidad › Configuración › Ajustes**, sección **Validador ATS**, y configura la URL del servicio:
+Ve a **Ajustes › sección "Validador ATS"** y configura la URL del servicio:
 
 ```
 http://localhost:8080
 ```
 
-Si el servicio corre en otro host o puerto, cámbialo aquí. El valor se guarda como parámetro del sistema (`ats_validator.server_url`) y aplica a todas las compañías.
+El valor se guarda como parámetro del sistema (`ats_validator.server_url`) y aplica globalmente.
 
 ---
 
@@ -99,7 +114,7 @@ ats_validator/
 │   └── res_config_settings.py  # URL configurable desde Ajustes
 ├── views/
 │   ├── ats_validation_views.xml       # Vistas list y form
-│   ├── res_config_settings_views.xml  # Sección en Ajustes de Contabilidad
+│   ├── res_config_settings_views.xml  # Bloque en Ajustes generales
 │   └── menu.xml                       # Ítem de menú bajo Contabilidad > Reportes
 ├── security/
 │   └── ir.model.access.csv      # Acceso por rol contable
@@ -121,13 +136,9 @@ ats_validator/
 
 ## API del servicio (referencia)
 
-El módulo consume únicamente este endpoint:
-
 ```
 POST {url}/api/ats/validar
 Content-Type: application/xml
-
-<body: contenido del XML>
 ```
 
 Respuesta esperada:
