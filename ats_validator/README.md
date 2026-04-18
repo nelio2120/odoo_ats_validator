@@ -1,8 +1,17 @@
-# ATS Validator — Módulo Odoo 18
+# ATS Validator — Módulo Odoo 18.0
 
-Módulo genérico para Odoo 18 que permite validar el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador enviando un XML a un servicio REST externo y mostrando los resultados directamente en la interfaz de Odoo.
+Módulo genérico para Odoo 18.0 que permite validar el **Anexo Transaccional Simplificado (ATS)** del SRI Ecuador enviando un XML a un servicio REST externo y mostrando los resultados directamente en la interfaz de Odoo.
 
 > Este módulo es un **cliente genérico**. No genera el XML del ATS — eso lo hace el módulo de localización ecuatoriana instalado en tu instancia. Este módulo toma ese XML, lo envía al validador y presenta el resultado.
+
+---
+
+## Versiones disponibles
+
+| Rama | Versión Odoo |
+|------|-------------|
+| [`18.0`](https://github.com/nelio2120/odoo_ats_validator/tree/18.0) | 18.0 |
+| [`19.0`](https://github.com/nelio2120/odoo_ats_validator/tree/19.0) | 19.0 |
 
 ---
 
