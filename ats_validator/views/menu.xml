@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Submenú bajo Contabilidad > Reportes > Validaciones ATS -->
+    <menuitem
+        id="menu_ats_validation_root"
+        name="Validaciones ATS"
+        parent="account.menu_finance_reports"
+        action="action_ats_validation"
+        sequence="99"/>
+
+</odoo>

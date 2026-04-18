@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── LIST VIEW ─────────────────────────────────────────────────── -->
+    <record id="view_ats_validation_list" model="ir.ui.view">
+        <field name="name">ats.validation.list</field>
+        <field name="model">ats.validation</field>
+        <field name="arch" type="xml">
+            <list string="Validaciones ATS" decoration-success="state == 'valid'"
+                  decoration-danger="state == 'invalid'" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="xml_filename"/>
+                <field name="create_date" string="Fecha"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'valid'"
+                       decoration-danger="state == 'invalid'"
+                       decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── FORM VIEW ─────────────────────────────────────────────────── -->
+    <record id="view_ats_validation_form" model="ir.ui.view">
+        <field name="name">ats.validation.form</field>
+        <field name="model">ats.validation</field>
+        <field name="arch" type="xml">
+            <form string="Validación ATS">
+
+                <!-- STATUS BAR -->
+                <header>
+                    <button name="action_validar"
+                            string="Validar XML"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft' or not xml_file"/>
+                    <button name="action_validar"
+                            string="Re-validar"
+                            type="object"
+                            invisible="state == 'draft'"/>
+                    <button name="action_reset"
+                            string="Reiniciar"
+                            type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,valid,invalid"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <!-- UPLOAD SECTION -->
+                    <group>
+                        <group string="Archivo XML">
+                            <field name="xml_file"
+                                   widget="binary"
+                                   filename="xml_filename"
+                                   string="Seleccionar XML"
+                                   readonly="state != 'draft'"/>
+                            <field name="xml_filename" invisible="1"/>
+                        </group>
+                        <group string="Estado de validación" invisible="state == 'draft'">
+                            <field name="is_valid" widget="boolean_toggle" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <!-- ALERT: sin archivo aún -->
+                    <div class="alert alert-info" role="alert"
+                         invisible="xml_file or state != 'draft'">
+                        <i class="fa fa-info-circle"/> Adjunte un archivo XML y pulse <strong>Validar XML</strong>.
+                    </div>
+
+                    <!-- ERRORES XSD -->
+                    <group string="Errores de estructura (XSD)"
+                           invisible="not has_errors_xsd">
+                        <div class="alert alert-danger" role="alert" style="width:100%">
+                            <field name="errors_xsd_display" readonly="1"/>
+                        </div>
+                    </group>
+
+                    <!-- ERRORES DE NEGOCIO -->
+                    <group string="Errores de reglas de negocio"
+                           invisible="not has_errors">
+                        <div class="alert alert-danger" role="alert" style="width:100%">
+                            <field name="errors_display" readonly="1"/>
+                        </div>
+                    </group>
+
+                    <!-- ADVERTENCIAS -->
+                    <group string="Advertencias"
+                           invisible="not has_warnings">
+                        <div class="alert alert-warning" role="alert" style="width:100%">
+                            <field name="warnings_display" readonly="1"/>
+                        </div>
+                    </group>
+
+                    <!-- TALÓN HTML -->
+                    <group string="Talón Resumen" invisible="not talon_html">
+                        <div style="width:100%; border:1px solid #dee2e6; border-radius:4px; overflow:auto;">
+                            <field name="talon_html" readonly="1" widget="html"/>
+                        </div>
+                    </group>
+
+                </sheet>
+
+                <!-- CHATTER -->
+                <chatter/>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- ── ACTION ────────────────────────────────────────────────────── -->
+    <record id="action_ats_validation" model="ir.actions.act_window">
+        <field name="name">Validaciones ATS</field>
+        <field name="res_model">ats.validation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Cree su primera validación ATS
+            </p>
+            <p>
+                Suba un XML del Anexo Transaccional Simplificado y valídelo
+                contra el servicio externo del SRI.
+            </p>
+        </field>
+    </record>
+
+</odoo>

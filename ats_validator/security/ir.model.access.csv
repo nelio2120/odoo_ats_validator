@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ats_validation_user,ats.validation user,model_ats_validation,account.group_account_user,1,1,1,0
+access_ats_validation_manager,ats.validation manager,model_ats_validation,account.group_account_manager,1,1,1,1

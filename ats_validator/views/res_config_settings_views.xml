@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_ats" model="ir.ui.view">
+        <field name="name">res.config.settings.view.ats</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='companies']" position="after">
+                <div id="ats_validator_settings">
+                    <block title="Validador ATS" name="ats_validator_block">
+                        <setting string="URL del servidor validador"
+                                 help="Dirección del servicio REST ATS (ej: http://localhost:8080)">
+                            <field name="ats_validator_url" placeholder="http://localhost:8080"/>
+                        </setting>
+                    </block>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
