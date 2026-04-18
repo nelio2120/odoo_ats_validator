@@ -10,7 +10,7 @@ Módulo genérico para Odoo 18 que permite validar el **Anexo Transaccional Simp
 
 | Requisito | Versión |
 |-----------|---------|
-| Odoo | 18.0 |
+| Odoo | 19.0 |
 | Python | 3.10+ |
 | `requests` | incluido en Odoo |
 | Servicio ATS Validator | corriendo y accesible |
