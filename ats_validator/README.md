@@ -144,6 +144,12 @@ Respuesta esperada:
 
 ---
 
+## Autor y soporte
+
+**Nelio Ciguencia** — [@nelio2120](https://github.com/nelio2120) — neliomarcos040@gmail.com
+
+---
+
 ## Licencia
 
 [LGPL-3](https://www.gnu.org/licenses/lgpl-3.0.html)

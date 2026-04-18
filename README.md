@@ -255,6 +255,21 @@ El archivo XML se adjunta al registro de validación en la base de datos de Odoo
 
 ---
 
+## Autor y soporte
+
+**Nelio Ciguencia**
+
+¿Tienes dudas, encontraste un bug o quieres proponer una mejora? Puedes contactarme por cualquiera de estos canales:
+
+| Canal | Enlace |
+|-------|--------|
+| GitHub | [@nelio2120](https://github.com/nelio2120) |
+| Correo | neliomarcos040@gmail.com |
+
+Si el módulo te fue útil, una estrella en el repositorio ayuda a que más gente de la comunidad Odoo lo encuentre.
+
+---
+
 ## Licencia
 
 [LGPL-3](https://www.gnu.org/licenses/lgpl-3.0.html) — libre para usar, modificar y distribuir, incluyendo en instancias Odoo Enterprise.
