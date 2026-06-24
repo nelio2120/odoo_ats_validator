@@ -1,6 +1,21 @@
 Changelog
 =========
 
+19.0.1.1.2 (2026-06-23)
+------------------------
+
+**Bugfixes**
+
+- ``static/description/index.html`` reescrita en ASCII puro (entidades
+  HTML para tildes/enies/simbolos): el importador de Odoo Apps Store
+  duplicaba la codificacion UTF-8 y mostraba texto corrupto
+  (``MÃ³dulo`` en vez de ``Módulo``).
+- Eliminadas las propiedades CSS que el sanitizador de Apps Store
+  descarta del atributo ``style`` (``background``, ``border-left``,
+  ``gap``, ``justify-content``, ``align-items``, ``flex-wrap``,
+  ``grid-template-columns``); el layout de tarjetas/grillas se
+  reemplaza por tablas HTML nativas.
+
 19.0.1.1.1 (2026-06-23)
 ------------------------
 
