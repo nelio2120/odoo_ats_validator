@@ -1,6 +1,16 @@
 Changelog
 =========
 
+18.0.1.1.6 (2026-06-23)
+------------------------
+
+**Bugfixes**
+
+- Declarada la clave ``images`` en ``__manifest__.py`` apuntando a
+  ``static/description/banner.png``. El archivo ya existia en el repo
+  pero el scanner de Apps Store no lo detectaba como cover image sin
+  esta declaracion explicita.
+
 18.0.1.1.5 (2026-06-23)
 ------------------------
 

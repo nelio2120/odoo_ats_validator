@@ -1,11 +1,14 @@
 {
     'name': 'ATS Validator',
-    'version': '18.0.1.1.5',
+    'version': '18.0.1.1.6',
     'summary': 'Validación del Anexo Transaccional Simplificado (ATS) vía servicio externo',
     'category': 'Accounting/Accounting',
     'author': 'Nelio Ciguencia',
     'maintainer': 'Nelio Ciguencia',
     'website': 'https://github.com/nelio2120/odoo_ats_validator',
+    'images': [
+        'static/description/banner.png',
+    ],
     'depends': ['account', 'base_setup', 'mail'],
     'data': [
         'security/ir.model.access.csv',
