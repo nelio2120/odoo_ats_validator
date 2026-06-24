@@ -1,6 +1,15 @@
 Changelog
 =========
 
+19.0.1.1.5 (2026-06-23)
+------------------------
+
+**Improvements**
+
+- Reemplazado ``static/description/banner.png`` con un diseño
+  horizontal dedicado (logo Odoo, badges 18/19, bandera de Ecuador,
+  SRI) en lugar del recorte cuadrado anterior.
+
 19.0.1.1.4 (2026-06-23)
 ------------------------
 

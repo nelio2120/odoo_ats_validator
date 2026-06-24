@@ -1,6 +1,6 @@
 {
     'name': 'ATS Validator',
-    'version': '19.0.1.1.4',
+    'version': '19.0.1.1.5',
     'summary': 'Validación del Anexo Transaccional Simplificado (ATS) vía servicio externo',
     'category': 'Accounting/Accounting',
     'author': 'Nelio Ciguencia',
