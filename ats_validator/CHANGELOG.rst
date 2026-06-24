@@ -1,6 +1,16 @@
 Changelog
 =========
 
+18.0.1.1.1 (2026-06-23)
+------------------------
+
+**Bugfixes**
+
+- Reescrita ``static/description/index.html`` como fragmento HTML con
+  estilos inline. Odoo Apps Store elimina el bloque ``<style>`` y las
+  etiquetas de documento (``<html>``, ``<head>``, ``<body>``) de la
+  descripción, por lo que el diseño se mostraba sin ningún CSS aplicado.
+
 18.0.1.1.0 (2026-06-23)
 ------------------------
 
