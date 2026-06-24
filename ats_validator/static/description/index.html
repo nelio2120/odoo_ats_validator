@@ -1,259 +1,200 @@
 <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#333;line-height:1.6;">
 
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
-<div style="background:linear-gradient(135deg, #2c3e6b 0%, #4a6fa5 100%);color:#fff;padding:48px 40px;text-align:center;">
-    <h1 style="font-size:2.2em;margin:0 0 12px;font-weight:700;color:#fff;">ATS Validator</h1>
-    <p style="font-size:1.1em;margin:0 auto;max-width:620px;opacity:.9;color:#fff;">
+<!-- HERO -->
+<div style="text-align:center;padding:24px 0;">
+    <h1 style="font-size:2em;margin:0 0 12px;font-weight:700;color:#2c3e6b;">ATS Validator</h1>
+    <p style="font-size:1.05em;margin:0 auto;max-width:620px;color:#555;">
         Valida el Anexo Transaccional Simplificado del SRI Ecuador
-        directamente desde Odoo — errores XSD, reglas de negocio,
-        advertencias y talón resumen HTML en una sola pantalla.
+        directamente desde Odoo &mdash; errores XSD, reglas de negocio,
+        advertencias y tal&oacute;n resumen HTML en una sola pantalla.
     </p>
-    <div style="margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-        <span style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;letter-spacing:.3px;color:#fff;">Odoo 18.0</span>
-        <span style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;letter-spacing:.3px;color:#fff;">SRI Ecuador</span>
-        <span style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;letter-spacing:.3px;color:#fff;">ATS / DIMM</span>
-        <span style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;letter-spacing:.3px;color:#fff;">LGPL-3</span>
-    </div>
+    <p style="margin-top:14px;font-size:.85em;color:#4a6fa5;font-weight:600;">
+        Odoo 18.0 &middot; SRI Ecuador &middot; ATS / DIMM &middot; LGPL-3
+    </p>
 </div>
 
+<hr style="border:none;border-bottom:1px solid #eee;margin:16px 0;"/>
 
-<!-- ══════════════════════════════════════════════
-     AVISO
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;">
-    <div style="background:#fff8e1;border-left:4px solid #f4a100;border-radius:0 6px 6px 0;padding:14px 18px;font-size:.92em;color:#555;">
-        <strong style="color:#b07000;">Módulo cliente genérico.</strong>
-        No genera el XML del ATS — eso lo hace el módulo de localización ecuatoriana instalado
-        en tu instancia. Este módulo toma ese XML, lo envía al microservicio validador externo
-        y presenta el resultado en Odoo.
-    </div>
+<!-- AVISO -->
+<div style="border:1px solid #f4a100;border-radius:6px;padding:14px 18px;font-size:.92em;color:#555;margin-bottom:24px;">
+    <strong style="color:#b07000;">M&oacute;dulo cliente gen&eacute;rico.</strong>
+    No genera el XML del ATS &mdash; eso lo hace el m&oacute;dulo de localizaci&oacute;n ecuatoriana instalado
+    en tu instancia. Este m&oacute;dulo toma ese XML, lo env&iacute;a al microservicio validador externo
+    y presenta el resultado en Odoo.
 </div>
 
+<!-- CARACTERISTICAS -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:0 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Caracter&iacute;sticas</h2>
+<table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Subida de XML</strong><br/>
+            <span style="font-size:.9em;color:#555;">Adjunta cualquier XML del ATS directamente desde el formulario de Odoo.</span>
+        </td>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Validaci&oacute;n XSD</strong><br/>
+            <span style="font-size:.9em;color:#555;">Detecta errores de estructura contra el esquema oficial <code>at.xsd</code> del SRI.</span>
+        </td>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Reglas de negocio</strong><br/>
+            <span style="font-size:.9em;color:#555;">Aplica las mismas validaciones del DIMM: c&oacute;digos, porcentajes, RUCs y m&aacute;s.</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Advertencias</strong><br/>
+            <span style="font-size:.9em;color:#555;">Muestra avisos que no bloquean la validez pero conviene revisar antes de presentar.</span>
+        </td>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Tal&oacute;n resumen HTML</strong><br/>
+            <span style="font-size:.9em;color:#555;">Renderiza el tal&oacute;n oficial del SRI directamente en Odoo cuando el XML es v&aacute;lido.</span>
+        </td>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Historial</strong><br/>
+            <span style="font-size:.9em;color:#555;">Guarda cada validaci&oacute;n con secuencia autom&aacute;tica <code>ATS/YYYY/NNNN</code>.</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">URL configurable</strong><br/>
+            <span style="font-size:.9em;color:#555;">Viene lista para usar contra el servicio p&uacute;blico; c&aacute;mbiala desde Ajustes si autohospedas el tuyo.</span>
+        </td>
+        <td style="border:1px solid #e0e8f0;padding:14px;width:33%;vertical-align:top;">
+            <strong style="color:#2c3e6b;">Permisos integrados</strong><br/>
+            <span style="font-size:.9em;color:#555;">Acceso controlado por los roles contables est&aacute;ndar de Odoo.</span>
+        </td>
+        <td style="border:none;padding:14px;width:33%;"></td>
+    </tr>
+</table>
 
-<!-- ══════════════════════════════════════════════
-     CARACTERÍSTICAS
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Características</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;margin-top:8px;">
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">📄</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Subida de XML</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Adjunta cualquier XML del ATS directamente desde el formulario de Odoo.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">🔍</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Validación XSD</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Detecta errores de estructura contra el esquema oficial <code>at.xsd</code> del SRI.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">⚙️</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Reglas de negocio</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Aplica las mismas validaciones del DIMM: códigos, porcentajes, RUCs y más.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">⚠️</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Advertencias</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Muestra avisos que no bloquean la validez pero conviene revisar antes de presentar.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">📋</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Talón resumen HTML</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Renderiza el talón oficial del SRI directamente en Odoo cuando el XML es válido.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">🗂️</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Historial</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Guarda cada validación con secuencia automática <code>ATS/YYYY/NNNN</code>.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">🔗</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">URL configurable</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Viene lista para usar contra el servicio público; cámbiala desde Ajustes si autohospedas el tuyo.</p>
-        </div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:20px;">
-            <div style="font-size:1.8em;margin-bottom:10px;">🔐</div>
-            <h3 style="margin:0 0 6px;font-size:1em;color:#2c3e6b;">Permisos integrados</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">Acceso controlado por los roles contables estándar de Odoo.</p>
-        </div>
-    </div>
-</div>
+<!-- REQUISITOS -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:0 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Requisitos</h2>
+<table style="width:100%;border-collapse:collapse;margin-bottom:16px;">
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;font-weight:700;color:#2c3e6b;width:40%;">Odoo</td>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;color:#555;">18.0</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;font-weight:700;color:#2c3e6b;">Python</td>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;color:#555;">3.10 o superior</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;font-weight:700;color:#2c3e6b;">Java (solo si autohospedas)</td>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;color:#555;">JDK 11, 17 o 21</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;font-weight:700;color:#2c3e6b;">M&oacute;dulos Odoo</td>
+        <td style="border:1px solid #e0e8f0;padding:10px 14px;color:#555;">account, mail</td>
+    </tr>
+</table>
 
+<p style="color:#555;font-size:.93em;">
+    El motor de validaci&oacute;n es el microservicio
+    <a href="https://github.com/nelio2120/ats-validator" style="color:#4a6fa5;">ats-validator</a>.
+    El m&oacute;dulo viene preconfigurado para usar el servicio p&uacute;blico ya desplegado &mdash;
+    no necesitas instalar nada adicional:
+</p>
+<pre style="border:1px solid #e0e8f0;border-radius:6px;padding:12px 16px;font-size:.88em;overflow-x:auto;color:#2c3e6b;"># URL por defecto, lista para usar
+https://validator.ats.erp360app.com</pre>
+<p style="color:#555;font-size:.93em;">
+    &iquest;Prefieres autohospedarlo? Es un JAR de Spring Boot autocontenido (~29 MB) que
+    incluye los cat&aacute;logos del SRI. Solo necesita Java instalado:
+</p>
+<pre style="border:1px solid #e0e8f0;border-radius:6px;padding:12px 16px;font-size:.88em;overflow-x:auto;color:#2c3e6b;"># Levantar el servicio (puerto 8080 por defecto)
+java -jar ats-validator-1.0.0.jar</pre>
 
-<!-- ══════════════════════════════════════════════
-     REQUISITOS
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Requisitos</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:14px;margin-top:8px;">
-        <div style="background:#f7f9fc;border-left:4px solid #4a6fa5;border-radius:0 6px 6px 0;padding:12px 16px;">
-            <div style="font-weight:700;color:#2c3e6b;font-size:.95em;">Odoo</div>
-            <div style="font-size:.88em;color:#555;margin-top:2px;">18.0</div>
-        </div>
-        <div style="background:#f7f9fc;border-left:4px solid #4a6fa5;border-radius:0 6px 6px 0;padding:12px 16px;">
-            <div style="font-weight:700;color:#2c3e6b;font-size:.95em;">Python</div>
-            <div style="font-size:.88em;color:#555;margin-top:2px;">3.10 o superior</div>
-        </div>
-        <div style="background:#f7f9fc;border-left:4px solid #4a6fa5;border-radius:0 6px 6px 0;padding:12px 16px;">
-            <div style="font-weight:700;color:#2c3e6b;font-size:.95em;">Java (solo si autohospedas)</div>
-            <div style="font-size:.88em;color:#555;margin-top:2px;">JDK 11, 17 o 21</div>
-        </div>
-        <div style="background:#f7f9fc;border-left:4px solid #4a6fa5;border-radius:0 6px 6px 0;padding:12px 16px;">
-            <div style="font-weight:700;color:#2c3e6b;font-size:.95em;">Módulos Odoo</div>
-            <div style="font-size:.88em;color:#555;margin-top:2px;">account, mail</div>
-        </div>
-    </div>
+<!-- INSTALACION -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:24px 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Instalaci&oacute;n</h2>
+<ol style="color:#555;font-size:.95em;padding-left:20px;">
+    <li style="margin-bottom:10px;">
+        <strong style="color:#2c3e6b;">Instala el m&oacute;dulo desde Odoo Apps</strong><br/>
+        Busca "ATS Validator" y haz clic en Instalar.
+    </li>
+    <li style="margin-bottom:10px;">
+        <strong style="color:#2c3e6b;">Listo para usar</strong><br/>
+        La URL del validador ya viene configurada por defecto en <em>Ajustes &rsaquo; Validador ATS</em>.
+        Solo c&aacute;mbiala si quieres autohospedar el microservicio.
+    </li>
+    <li style="margin-bottom:10px;">
+        <strong style="color:#2c3e6b;">Empieza a validar</strong><br/>
+        Accede a <em>Contabilidad &rsaquo; Reportes &rsaquo; Validaciones ATS</em> y comienza a validar.
+    </li>
+</ol>
 
-    <div style="margin-top:24px;">
-        <h3 style="color:#2c3e6b;margin-bottom:10px;">Microservicio ATS Validator</h3>
-        <p style="margin-top:0;color:#555;font-size:.93em;">
-            El motor de validación es el microservicio
-            <a href="https://github.com/nelio2120/ats-validator" style="color:#4a6fa5;text-decoration:none;">ats-validator</a>.
-            El módulo viene preconfigurado para usar el servicio público ya desplegado —
-            no necesitas instalar nada adicional:
-        </p>
-        <div style="background:#1e2a3a;color:#a8d8a8;border-radius:8px;padding:16px 20px;font-family:'Courier New',monospace;font-size:.88em;overflow-x:auto;margin:12px 0;">
-<span style="color:#6a9fb5;"># URL por defecto, lista para usar</span>
-https://validator.ats.erp360app.com
-        </div>
-        <p style="margin-top:14px;color:#555;font-size:.93em;">
-            ¿Prefieres autohospedarlo? Es un JAR de Spring Boot autocontenido (~29 MB) que
-            incluye los catálogos del SRI. Solo necesita Java instalado:
-        </p>
-        <div style="background:#1e2a3a;color:#a8d8a8;border-radius:8px;padding:16px 20px;font-family:'Courier New',monospace;font-size:.88em;overflow-x:auto;margin:12px 0;">
-<span style="color:#6a9fb5;"># Levantar el servicio (puerto 8080 por defecto)</span>
-java -jar ats-validator-1.0.0.jar
-        </div>
-    </div>
-</div>
+<!-- FLUJO -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:24px 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Flujo de uso</h2>
+<table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
+    <tr>
+        <td style="border:1px solid #e0e8f0;padding:12px;text-align:center;color:#2c3e6b;font-weight:600;">Subir XML</td>
+        <td style="border:none;text-align:center;color:#4a6fa5;font-weight:700;width:30px;">&rarr;</td>
+        <td style="border:1px solid #e0e8f0;padding:12px;text-align:center;color:#2c3e6b;font-weight:600;">Validar XML</td>
+        <td style="border:none;text-align:center;color:#4a6fa5;font-weight:700;width:30px;">&rarr;</td>
+        <td style="border:1px solid #e0e8f0;padding:12px;text-align:center;color:#2c3e6b;font-weight:600;">Servicio REST</td>
+        <td style="border:none;text-align:center;color:#4a6fa5;font-weight:700;width:30px;">&rarr;</td>
+        <td style="border:1px solid #e0e8f0;padding:12px;text-align:center;color:#2c3e6b;font-weight:600;">Resultados en Odoo</td>
+    </tr>
+</table>
 
+<!-- RESULTADOS -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:0 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Resultados posibles</h2>
+<table style="width:100%;border-collapse:collapse;font-size:.92em;margin-bottom:24px;">
+    <tr>
+        <th style="border-bottom:2px solid #2c3e6b;color:#2c3e6b;padding:10px 14px;text-align:left;">Secci&oacute;n</th>
+        <th style="border-bottom:2px solid #2c3e6b;color:#2c3e6b;padding:10px 14px;text-align:left;">Estado</th>
+        <th style="border-bottom:2px solid #2c3e6b;color:#2c3e6b;padding:10px 14px;text-align:left;">Descripci&oacute;n</th>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Estado del registro</strong></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;color:#155724;font-weight:700;">V&aacute;lido</td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;">El XML pasa XSD y todas las reglas de negocio del SRI.</td>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Estado del registro</strong></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;color:#721c24;font-weight:700;">Inv&aacute;lido</td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;">Hay errores que impiden la presentaci&oacute;n al SRI.</td>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Errores XSD</strong></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;color:#721c24;font-weight:700;">Bloqueante</td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;">El XML no cumple la estructura del esquema oficial <code>at.xsd</code>.</td>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Errores de negocio</strong></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;color:#721c24;font-weight:700;">Bloqueante</td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;">Datos inv&aacute;lidos seg&uacute;n las reglas del DIMM (c&oacute;digos, porcentajes, RUCs).</td>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Advertencias</strong></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;color:#856404;font-weight:700;">Informativo</td>
+        <td style="padding:10px 14px;border-bottom:1px solid #eee;">Avisos que no bloquean la validez. Conviene revisarlos.</td>
+    </tr>
+    <tr>
+        <td style="padding:10px 14px;"><strong>Tal&oacute;n resumen HTML</strong></td>
+        <td style="padding:10px 14px;color:#155724;font-weight:700;">Solo si es v&aacute;lido</td>
+        <td style="padding:10px 14px;">Tal&oacute;n oficial del SRI renderizado directamente en Odoo.</td>
+    </tr>
+</table>
 
-<!-- ══════════════════════════════════════════════
-     INSTALACIÓN
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Instalación</h2>
-    <div style="list-style:none;padding:0;margin:0;">
-        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;">
-            <span style="background:#4a6fa5;color:#fff;border-radius:50%;width:30px;height:30px;min-width:30px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em;">1</span>
-            <div>
-                <strong style="display:block;color:#2c3e6b;margin-bottom:2px;">Instala el módulo desde Odoo Apps</strong>
-                <span style="font-size:.9em;color:#555;">Busca "ATS Validator" y haz clic en Instalar.</span>
-            </div>
-        </div>
-        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;">
-            <span style="background:#4a6fa5;color:#fff;border-radius:50%;width:30px;height:30px;min-width:30px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em;">2</span>
-            <div>
-                <strong style="display:block;color:#2c3e6b;margin-bottom:2px;">Listo para usar</strong>
-                <span style="font-size:.9em;color:#555;">La URL del validador ya viene configurada por defecto en <em>Ajustes › Validador ATS</em>. Solo cámbiala si quieres autohospedar el microservicio.</span>
-            </div>
-        </div>
-        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;">
-            <span style="background:#4a6fa5;color:#fff;border-radius:50%;width:30px;height:30px;min-width:30px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em;">3</span>
-            <div>
-                <strong style="display:block;color:#2c3e6b;margin-bottom:2px;">Empieza a validar</strong>
-                <span style="font-size:.9em;color:#555;">Accede a <em>Contabilidad › Reportes › Validaciones ATS</em> y comienza a validar.</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════
-     FLUJO
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Flujo de uso</h2>
-    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:8px;">
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:14px 18px;text-align:center;flex:1;min-width:130px;">
-            <div style="font-size:1.6em;">📤</div>
-            <div style="font-size:.82em;color:#444;margin-top:6px;">Subir XML</div>
-        </div>
-        <div style="font-size:1.4em;color:#4a6fa5;padding:0 6px;font-weight:700;">›</div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:14px 18px;text-align:center;flex:1;min-width:130px;">
-            <div style="font-size:1.6em;">🚀</div>
-            <div style="font-size:.82em;color:#444;margin-top:6px;">Validar XML</div>
-        </div>
-        <div style="font-size:1.4em;color:#4a6fa5;padding:0 6px;font-weight:700;">›</div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:14px 18px;text-align:center;flex:1;min-width:130px;">
-            <div style="font-size:1.6em;">🌐</div>
-            <div style="font-size:.82em;color:#444;margin-top:6px;">Servicio REST</div>
-        </div>
-        <div style="font-size:1.4em;color:#4a6fa5;padding:0 6px;font-weight:700;">›</div>
-        <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:8px;padding:14px 18px;text-align:center;flex:1;min-width:130px;">
-            <div style="font-size:1.6em;">📊</div>
-            <div style="font-size:.82em;color:#444;margin-top:6px;">Resultados en Odoo</div>
-        </div>
-    </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════
-     RESULTADOS
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Resultados posibles</h2>
-    <table style="width:100%;border-collapse:collapse;font-size:.92em;">
-        <tr>
-            <th style="background:#2c3e6b;color:#fff;padding:10px 14px;text-align:left;">Sección</th>
-            <th style="background:#2c3e6b;color:#fff;padding:10px 14px;text-align:left;">Estado</th>
-            <th style="background:#2c3e6b;color:#fff;padding:10px 14px;text-align:left;">Descripción</th>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Estado del registro</strong></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#d4edda;color:#155724;">Válido</span></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;">El XML pasa XSD y todas las reglas de negocio del SRI.</td>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;"><strong>Estado del registro</strong></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#f8d7da;color:#721c24;">Inválido</span></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;">Hay errores que impiden la presentación al SRI.</td>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Errores XSD</strong></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#f8d7da;color:#721c24;">Bloqueante</span></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;">El XML no cumple la estructura del esquema oficial <code>at.xsd</code>.</td>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;"><strong>Errores de negocio</strong></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#f8d7da;color:#721c24;">Bloqueante</span></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;background:#f7f9fc;">Datos inválidos según las reglas del DIMM (códigos, porcentajes, RUCs).</td>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><strong>Advertencias</strong></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#fff3cd;color:#856404;">Informativo</span></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #eee;">Avisos que no bloquean la validez. Conviene revisarlos.</td>
-        </tr>
-        <tr>
-            <td style="padding:10px 14px;background:#f7f9fc;"><strong>Talón resumen HTML</strong></td>
-            <td style="padding:10px 14px;background:#f7f9fc;"><span style="display:inline-block;border-radius:12px;padding:2px 10px;font-size:.82em;font-weight:600;background:#d4edda;color:#155724;">Solo si es válido</span></td>
-            <td style="padding:10px 14px;background:#f7f9fc;">Talón oficial del SRI renderizado directamente en Odoo.</td>
-        </tr>
-    </table>
-</div>
-
-
-<!-- ══════════════════════════════════════════════
-     AUTOR
-══════════════════════════════════════════════ -->
-<div style="padding:44px 40px;max-width:880px;margin:0 auto;border-top:1px solid #eee;">
-    <h2 style="font-size:1.4em;color:#2c3e6b;margin:0 0 20px;padding-bottom:8px;border-bottom:3px solid #4a6fa5;display:inline-block;">Autor y soporte</h2>
-    <div style="background:#f7f9fc;border:1px solid #e0e8f0;border-radius:10px;padding:24px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg, #2c3e6b, #4a6fa5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5em;font-weight:700;flex-shrink:0;">N</div>
-        <div>
-            <h3 style="margin:0 0 4px;color:#2c3e6b;">Nelio Ciguencia</h3>
-            <p style="margin:0;font-size:.9em;color:#555;">
-                GitHub: <a href="https://github.com/nelio2120" target="_blank" style="color:#4a6fa5;text-decoration:none;">@nelio2120</a>
-                &nbsp;·&nbsp;
-                Email: <a href="mailto:neliomarcos040@gmail.com" style="color:#4a6fa5;text-decoration:none;">neliomarcos040@gmail.com</a>
-            </p>
-            <p style="margin:6px 0 0;font-size:.9em;color:#555;">
-                ¿Dudas, bugs o mejoras? Abre un issue en el repositorio o escríbeme directamente.
-            </p>
-        </div>
-    </div>
-</div>
+<!-- AUTOR -->
+<h2 style="font-size:1.3em;color:#2c3e6b;margin:0 0 14px;border-bottom:2px solid #4a6fa5;display:inline-block;">Autor y soporte</h2>
+<table style="width:100%;border-collapse:collapse;">
+    <tr>
+        <td style="border:1px solid #e0e8f0;border-radius:8px;padding:18px 22px;">
+            <span style="display:inline-block;width:48px;height:48px;border:2px solid #4a6fa5;border-radius:50%;text-align:center;line-height:48px;font-size:1.3em;font-weight:700;color:#4a6fa5;">N</span>
+            &nbsp;&nbsp;
+            <strong style="color:#2c3e6b;font-size:1.1em;">Nelio Ciguencia</strong>
+            <br/><br/>
+            <span style="font-size:.9em;color:#555;">
+                GitHub: <a href="https://github.com/nelio2120" style="color:#4a6fa5;">@nelio2120</a>
+                &nbsp;&middot;&nbsp;
+                Email: <a href="mailto:neliomarcos040@gmail.com" style="color:#4a6fa5;">neliomarcos040@gmail.com</a>
+            </span>
+            <br/>
+            <span style="font-size:.9em;color:#555;">
+                &iquest;Dudas, bugs o mejoras? Abre un issue en el repositorio o escr&iacute;beme directamente.
+            </span>
+        </td>
+    </tr>
+</table>
 
 </div>
