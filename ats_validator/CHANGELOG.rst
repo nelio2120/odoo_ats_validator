@@ -1,6 +1,15 @@
 Changelog
 =========
 
+19.0.1.1.4 (2026-06-23)
+------------------------
+
+**Improvements**
+
+- Agregado ``static/description/banner.png`` (560x280), la imagen de
+  portada/miniatura ("cover image") que exige el scanner de calidad
+  de Odoo Apps Store. Es un archivo distinto de ``icon.png``.
+
 19.0.1.1.3 (2026-06-23)
 ------------------------
 
