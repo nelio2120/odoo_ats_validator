@@ -352,14 +352,14 @@
     <div class="req-grid">
         <div class="req-item">
             <div class="req-name">Odoo</div>
-            <div class="req-val">18.0</div>
+            <div class="req-val">19.0</div>
         </div>
         <div class="req-item">
             <div class="req-name">Python</div>
             <div class="req-val">3.10 o superior</div>
         </div>
         <div class="req-item">
-            <div class="req-name">Java (microservicio)</div>
+            <div class="req-name">Java (solo si autohospedas)</div>
             <div class="req-val">JDK 11, 17 o 21</div>
         </div>
         <div class="req-item">
@@ -372,9 +372,17 @@
         <h3 style="color:#2c3e6b; margin-bottom:10px;">Microservicio ATS Validator</h3>
         <p style="margin-top:0; color:#555; font-size:.93em;">
             El motor de validación es el microservicio
-            <a href="https://github.com/nelio2120/ats-validator" style="color:#4a6fa5;">ats-validator</a>
-            — un JAR de Spring Boot autocontenido (~29 MB) que incluye los catálogos del SRI.
-            Solo necesita Java instalado:
+            <a href="https://github.com/nelio2120/ats-validator" style="color:#4a6fa5;">ats-validator</a>.
+            El módulo viene preconfigurado para usar el servicio público ya desplegado —
+            no necesitas instalar nada adicional:
+        </p>
+        <div class="code-block">
+<span class="comment"># URL por defecto, lista para usar</span>
+https://validator.ats.erp360app.com
+        </div>
+        <p style="margin-top:14px; color:#555; font-size:.93em;">
+            ¿Prefieres autohospedarlo? Es un JAR de Spring Boot autocontenido (~29 MB) que
+            incluye los catálogos del SRI. Solo necesita Java instalado:
         </p>
         <div class="code-block">
 <span class="comment"># Levantar el servicio (puerto 8080 por defecto)</span>
@@ -398,19 +406,13 @@ java -jar ats-validator-1.0.0.jar
         </li>
         <li>
             <div>
-                <strong>Levanta el microservicio</strong>
-                <span>Ejecuta el JAR en el servidor donde corre Odoo o en uno accesible desde él.</span>
+                <strong>Listo para usar</strong>
+                <span>La URL del validador ya viene configurada por defecto en <em>Ajustes › Validador ATS</em>. Solo cámbiala si quieres autohospedar el microservicio.</span>
             </div>
         </li>
         <li>
             <div>
-                <strong>Configura la URL</strong>
-                <span>Ve a <em>Ajustes › Validador ATS</em> e ingresa la URL del microservicio.</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <strong>Listo</strong>
+                <strong>Empieza a validar</strong>
                 <span>Accede a <em>Contabilidad › Reportes › Validaciones ATS</em> y comienza a validar.</span>
             </div>
         </li>

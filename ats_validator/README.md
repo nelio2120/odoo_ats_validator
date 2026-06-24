@@ -26,12 +26,22 @@ Módulo genérico para Odoo 19.0 que permite validar el **Anexo Transaccional Si
 
 ### Servicio ATS Validator
 
-Este módulo requiere el microservicio **[ats-validator](https://github.com/nelio2120/ats-validator)** corriendo como backend de validación. Es un JAR de Spring Boot autocontenido que expone la API REST utilizada por este módulo.
+El módulo viene configurado por defecto para usar el servicio público alojado en:
+
+```
+https://validator.ats.erp360app.com
+```
+
+No necesitas instalar nada adicional para empezar a validar.
+
+Si prefieres correr tu propia instancia (por ejemplo en una red privada), puedes desplegar el microservicio **[ats-validator](https://github.com/nelio2120/ats-validator)**, un JAR de Spring Boot autocontenido que expone la misma API REST:
 
 ```bash
 java -jar ats-validator-1.0.0.jar
 # Escucha en http://localhost:8080 por defecto
 ```
+
+En ese caso, cambia la URL en Ajustes apuntando a tu propia instancia.
 
 ---
 
@@ -51,13 +61,13 @@ java -jar ats-validator-1.0.0.jar
 
 ## Configuración
 
-Ve a **Ajustes › sección "Validador ATS"** y configura la URL del servicio:
+Ve a **Ajustes › sección "Validador ATS"**. Por defecto ya apunta a:
 
 ```
-http://localhost:8080
+https://validator.ats.erp360app.com
 ```
 
-El valor se guarda como parámetro del sistema (`ats_validator.server_url`) y aplica globalmente.
+Si prefieres usar tu propia instancia del microservicio, cámbiala aquí. El valor se guarda como parámetro del sistema (`ats_validator.server_url`) y aplica globalmente.
 
 ---
 
@@ -152,6 +162,12 @@ Respuesta esperada:
   "talonHtml": "<html>...</html>"
 }
 ```
+
+---
+
+## Historial de cambios
+
+Ver [`CHANGELOG.rst`](./CHANGELOG.rst).
 
 ---
 

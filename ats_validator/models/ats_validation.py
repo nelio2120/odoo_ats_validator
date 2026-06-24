@@ -1,5 +1,4 @@
 import base64
-import json
 import logging
 
 import requests
@@ -28,11 +27,6 @@ class AtsValidation(models.Model):
         attachment=True,
     )
     xml_filename = fields.Char(string='Nombre del archivo')
-    server_url = fields.Char(
-        string='URL del servidor',
-        compute='_compute_server_url',
-        store=False,
-    )
     state = fields.Selection(
         selection=[
             ('draft', 'Borrador'),
@@ -45,9 +39,9 @@ class AtsValidation(models.Model):
         copy=False,
     )
     is_valid = fields.Boolean(string='¿Válido?', readonly=True, copy=False)
-    errors_xsd = fields.Text(string='Errores XSD (raw)', readonly=True, copy=False)
-    errors = fields.Text(string='Errores de negocio (raw)', readonly=True, copy=False)
-    warnings = fields.Text(string='Advertencias (raw)', readonly=True, copy=False)
+    errors_xsd = fields.Json(string='Errores XSD (raw)', readonly=True, copy=False)
+    errors = fields.Json(string='Errores de negocio (raw)', readonly=True, copy=False)
+    warnings = fields.Json(string='Advertencias (raw)', readonly=True, copy=False)
     talon_html = fields.Html(
         string='Talón Resumen',
         readonly=True,
@@ -73,22 +67,8 @@ class AtsValidation(models.Model):
     has_errors = fields.Boolean(compute='_compute_display_fields')
     has_warnings = fields.Boolean(compute='_compute_display_fields')
 
-    @api.depends_context('company')
-    def _compute_server_url(self):
-        url = self.env['ir.config_parameter'].sudo().get_param(
-            'ats_validator.server_url', 'http://localhost:8080'
-        )
-        for rec in self:
-            rec.server_url = url
-
-    def _items_to_html(self, raw_json):
-        """Convierte un JSON array de strings a lista HTML."""
-        if not raw_json:
-            return ''
-        try:
-            items = json.loads(raw_json)
-        except (json.JSONDecodeError, TypeError):
-            items = [raw_json]
+    def _items_to_html(self, items):
+        """Convierte una lista de strings a lista HTML."""
         if not items:
             return ''
         li = ''.join(f'<li>{item}</li>' for item in items)
@@ -97,12 +77,9 @@ class AtsValidation(models.Model):
     @api.depends('errors_xsd', 'errors', 'warnings')
     def _compute_display_fields(self):
         for rec in self:
-            xsd = json.loads(rec.errors_xsd or '[]')
-            err = json.loads(rec.errors or '[]')
-            warn = json.loads(rec.warnings or '[]')
-            rec.has_errors_xsd = bool(xsd)
-            rec.has_errors = bool(err)
-            rec.has_warnings = bool(warn)
+            rec.has_errors_xsd = bool(rec.errors_xsd)
+            rec.has_errors = bool(rec.errors)
+            rec.has_warnings = bool(rec.warnings)
             rec.errors_xsd_display = rec._items_to_html(rec.errors_xsd)
             rec.errors_display = rec._items_to_html(rec.errors)
             rec.warnings_display = rec._items_to_html(rec.warnings)
@@ -120,7 +97,7 @@ class AtsValidation(models.Model):
             raise UserError(_('Debe adjuntar un archivo XML antes de validar.'))
 
         url = self.env['ir.config_parameter'].sudo().get_param(
-            'ats_validator.server_url', 'http://localhost:8080'
+            'ats_validator.server_url', 'https://validator.ats.erp360app.com'
         ).rstrip('/')
         endpoint = f'{url}/api/ats/validar'
 
@@ -153,9 +130,9 @@ class AtsValidation(models.Model):
         self.write({
             'is_valid': is_valid,
             'state': 'valid' if is_valid else 'invalid',
-            'errors_xsd': json.dumps(result.get('erroresXsd') or []),
-            'errors': json.dumps(result.get('errores') or []),
-            'warnings': json.dumps(result.get('advertencias') or []),
+            'errors_xsd': result.get('erroresXsd') or [],
+            'errors': result.get('errores') or [],
+            'warnings': result.get('advertencias') or [],
             'talon_html': result.get('talonHtml') or False,
         })
 
@@ -164,8 +141,8 @@ class AtsValidation(models.Model):
         self.write({
             'state': 'draft',
             'is_valid': False,
-            'errors_xsd': False,
-            'errors': False,
-            'warnings': False,
+            'errors_xsd': [],
+            'errors': [],
+            'warnings': [],
             'talon_html': False,
         })

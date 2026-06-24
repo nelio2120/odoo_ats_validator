@@ -10,8 +10,8 @@
                 <div id="ats_validator_settings">
                     <block title="Validador ATS" name="ats_validator_block">
                         <setting string="URL del servidor validador"
-                                 help="Dirección del servicio REST ATS (ej: http://localhost:8080)">
-                            <field name="ats_validator_url" placeholder="http://localhost:8080"/>
+                                 help="Dirección del servicio REST ATS (por defecto: https://validator.ats.erp360app.com)">
+                            <field name="ats_validator_url" placeholder="https://validator.ats.erp360app.com"/>
                         </setting>
                     </block>
                 </div>
