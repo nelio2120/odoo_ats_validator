@@ -44,12 +44,20 @@ Módulo genérico para Odoo que valida el **Anexo Transaccional Simplificado (AT
 
 ### Microservicio ATS Validator
 
-Este módulo **requiere** el microservicio [ats-validator](https://github.com/nelio2120/ats-validator) corriendo y accesible desde el servidor Odoo. Es un JAR de Spring Boot autocontenido (~29 MB) que incluye los catálogos del SRI y las mismas reglas de validación del DIMM.
+Este módulo **requiere** el microservicio [ats-validator](https://github.com/nelio2120/ats-validator) como backend de validación. Es un JAR de Spring Boot autocontenido (~29 MB) que incluye los catálogos del SRI y las mismas reglas de validación del DIMM.
 
-**Requisito del microservicio:** Java 11 o superior.
+Por defecto, el módulo usa el servicio público ya desplegado:
+
+```
+https://validator.ats.erp360app.com
+```
+
+No necesitas instalar Java ni nada adicional para empezar a usarlo.
+
+**Opcional — autohospedar el microservicio:**
 
 ```bash
-# Verificar Java
+# Verificar Java (11 o superior)
 java -version
 
 # Levantar el servicio (puerto 8080 por defecto)
@@ -61,6 +69,8 @@ El servicio está listo cuando aparece en la consola:
 ```
 Started AtsValidatorApplication in X seconds
 ```
+
+Luego cambia la URL en Ajustes apuntando a tu propia instancia.
 
 ---
 
@@ -102,15 +112,15 @@ Started AtsValidatorApplication in X seconds
 
 ## Configuración
 
-Ve a **Ajustes › sección "Validador ATS"** y establece la URL del microservicio:
+Ve a **Ajustes › sección "Validador ATS"**. La URL ya viene configurada por defecto:
 
 | Campo | Valor por defecto | Descripción |
 |-------|-------------------|-------------|
-| URL del servidor validador | `http://localhost:8080` | Dirección completa del microservicio ATS |
+| URL del servidor validador | `https://validator.ats.erp360app.com` | Servicio público de validación, listo para usar |
 
 El valor se guarda como parámetro del sistema (`ats_validator.server_url`) y aplica globalmente.
 
-**Ejemplo si el servicio corre en otro servidor:**
+**Ejemplo si usas tu propia instancia autohospedada:**
 
 ```
 http://192.168.1.100:8080

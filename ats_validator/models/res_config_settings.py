@@ -7,6 +7,6 @@ class ResConfigSettings(models.TransientModel):
     ats_validator_url = fields.Char(
         string='URL del Validador ATS',
         config_parameter='ats_validator.server_url',
-        default='http://localhost:8080',
-        placeholder='http://localhost:8080',
+        default='https://validator.ats.erp360app.com',
+        placeholder='https://validator.ats.erp360app.com',
     )
