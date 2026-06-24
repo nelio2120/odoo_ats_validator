@@ -1,6 +1,15 @@
 Changelog
 =========
 
+18.0.1.1.3 (2026-06-23)
+------------------------
+
+**Improvements**
+
+- Agregado ``static/description/icon.png`` (icono del modulo, visible
+  en el listado de Odoo Apps) y referenciado como imagen de cabecera
+  en ``index.html``.
+
 18.0.1.1.2 (2026-06-23)
 ------------------------
 
